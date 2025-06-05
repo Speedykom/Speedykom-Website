@@ -1,48 +1,100 @@
-'use client'
-import { useState } from 'react'
-import Image from 'next/image'
+"use client"
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-      <div className="flex items-center">
+    <nav className="flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 border-b border-gray-200 bg-white">
+      <Link href={"/"} className="w-32 sm:w-36 md:w-40 h-8 relative">
         <Image 
-          alt="Speedykom Logo" 
-          className="h-8 mr-2" 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhxs8b9W518aF7xQA3mYsO_ossYV_DgOEDNWvEfNFVJxFDZDSVFZgYuy1oycJ90fQpbLk0VjshDHvGiWnJ8QNQ2d5mN_eB1ZvKEifu761rrYu1jft1x0Rz9YbK-cO2i8vdtTJKQW_wMzMbHLl3LuoH-sG6dxlnPqD9LRrxqUkZXQ_-SDgpapJe0ntenGNBsqNPrO1lSa6tKIST3ebahHTWbPhAhfrZ8dMWdasByqngabo4M98DRbcwqiMGrcktnyjyO_YYMowkQzo"
-          width={32}
-          height={32}
+          src="/speedykom-small.png" 
+          alt="Logo" 
+          fill
+          className="object-contain"
+          sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 160px"
         />
-        <span className="font-bold text-xl text-gray-700">SPEEDYKOM</span>
+      </Link>
+      <div className="hidden md:flex space-x-8">
+        <Link href="/" className="text-gray-800 hover:text-gray-600 font-medium transition-colors">
+          Home
+        </Link>
+        <Link href="/solutions" className="text-gray-800 hover:text-gray-600 font-medium transition-colors">
+          Solutions
+        </Link>
+        <Link href="/speedymesh" className="text-gray-800 hover:text-gray-600 font-medium transition-colors">
+          SpeedyMesh
+        </Link>
+        <Link href="/about" className="text-gray-800 hover:text-gray-600 font-medium transition-colors">
+          About
+        </Link>
+        <Link href="/contact" className="text-gray-800 hover:text-gray-600 font-medium transition-colors">
+          Contact
+        </Link>
       </div>
-      <nav className="hidden md:flex space-x-8">
-        <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">Home</a>
-        <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">Solutions</a>
-        <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">SpeedyMesh</a>
-        <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">About</a>
-        <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">Contact</a>
-      </nav>
-      <button 
-        className="md:hidden"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      <button
+        className="md:hidden p-2 focus:outline-none"
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
       >
-        <span className="material-icons">menu</span>
+        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+          />
+        </svg>
       </button>
-      
-      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-20 left-0 right-0 bg-white shadow-lg md:hidden z-50">
-          <nav className="flex flex-col space-y-4 p-4">
-            <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">Home</a>
-            <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">Solutions</a>
-            <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">SpeedyMesh</a>
-            <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">About</a>
-            <a className="text-gray-600 hover:text-teal-500 transition-colors" href="#">Contact</a>
-          </nav>
+        <div className="absolute top-16 left-0 w-full bg-white border-b border-gray-200 shadow-lg md:hidden">
+          <div className="flex flex-col items-center space-y-4 py-4">
+            <Link 
+              href="/" 
+              className="text-gray-800 hover:text-gray-600 font-medium w-full text-center py-2" 
+              onClick={toggleMenu}
+            >
+              Home
+            </Link>
+            <Link 
+              href="/solutions" 
+              className="text-gray-800 hover:text-gray-600 font-medium w-full text-center py-2" 
+              onClick={toggleMenu}
+            >
+              Solutions
+            </Link>
+            <Link 
+              href="/speedymesh" 
+              className="text-gray-800 hover:text-gray-600 font-medium w-full text-center py-2" 
+              onClick={toggleMenu}
+            >
+              SpeedyMesh
+            </Link>
+            <Link 
+              href="/about" 
+              className="text-gray-800 hover:text-gray-600 font-medium w-full text-center py-2" 
+              onClick={toggleMenu}
+            >
+              About
+            </Link>
+            <Link 
+              href="/contact" 
+              className="text-gray-800 hover:text-gray-600 font-medium w-full text-center py-2" 
+              onClick={toggleMenu}
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       )}
-    </header>
-  )
-}
+    </nav>
+  );
+};
+
+export default Header;

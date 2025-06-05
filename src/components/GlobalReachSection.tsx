@@ -1,3 +1,5 @@
+import { CircleWithIcon } from "./ui/circle-with-icon"
+
 export default function GlobalReachSection() {
   const services = [
     {
@@ -60,7 +62,8 @@ export default function GlobalReachSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-white p-6 rounded-lg border border-gray-200">
-              <span className="material-icons text-teal-500 text-3xl mb-4">{service.icon}</span>
+              {/* <span className="material-icons text-teal-500 text-3xl mb-4">{service.icon}</span> */}
+              <CircleWithIcon size={50} backgroundColor="#F0F7F6" icon={service.icon}  />
               <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
               <p className="text-gray-600 text-sm mb-3">{service.description}</p>
               {service.products && (

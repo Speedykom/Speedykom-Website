@@ -17,13 +17,23 @@ export const metadata: Metadata = {
   description: "Speedykom GmbH, Software company in Erlangen, Germany",
 };
 
+import { Cabin } from 'next/font/google';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const cabin = Cabin({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={cabin.className}>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -32,7 +42,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
