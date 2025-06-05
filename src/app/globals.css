@@ -120,3 +120,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hero-bg {
+  background-image: url('/image-hero-background.png');
+  background-size: cover;
+  background-position: center;
+}
