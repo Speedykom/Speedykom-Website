@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 const sections = [
   {
@@ -66,10 +67,12 @@ export default function MainSection() {
                 </ul>
               </div>
             )}
-            <Button className="bg-[#56A09A] hover:bg-teal-700 text-white px-6 py-2 rounded-md">
-              {section.buttonText}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="/solutions">
+              <Button className="bg-[#56A09A] cursor-pointer hover:bg-teal-700 text-white px-6 py-2 rounded-md">
+                {section.buttonText}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
           <div>
             <Image

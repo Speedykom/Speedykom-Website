@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const CTASection = () => {
   return (
@@ -35,9 +36,9 @@ const CTASection = () => {
           Together we can create tools that catalyse sustainable change.
         </p>
         
-        <button className="bg-teal-600 hover:[#56A09A] text-white font-medium px-8 py-3 rounded-lg transition-colors duration-200 text-lg">
+        <Link href="/contact" className="bg-teal-600 hover:[#56A09A] text-white font-medium px-8 py-3 rounded-lg transition-colors duration-200 text-lg">
           Get in Touch
-        </button>
+        </Link>
       </div>
     </section>
   );

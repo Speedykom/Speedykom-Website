@@ -87,6 +87,14 @@ export default function CompanyCulture() {
           </div>
         </div>
       </section>
+      <div className="max-w-4xl mx-auto py-20">
+        <p className="text-center text-gray-600 text-lg leading-relaxed">
+          We welcome applications from both experienced professionals and early-career candidates, including interns and
+          juniors. You don&apos;t need to tick every box—we&apos;re especially interested in individuals who demonstrate
+          curiosity, initiative, and a commitment to social impact. If you&apos;re excited to work at the intersection of
+          technology and public service, we&apos;d love to hear from you.
+        </p>
+      </div>
     </main>
   );
 }
