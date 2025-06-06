@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -17,9 +17,9 @@ export default function HeroSection() {
           <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0">
             We help governments and development actors design and build digital systems that deliver lasting public impact.
           </p>
-          <Button className="w-full sm:w-auto bg-[#56A09A] hover:bg-teal-700 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-md text-base sm:text-lg transition-colors duration-200">
+          <Link href="/contact" className="w-full sm:w-auto bg-[#56A09A] hover:bg-teal-700 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-md text-base sm:text-lg transition-colors duration-200">
             Get in Touch
-          </Button>
+          </Link>
         </div>
 
         {/* Image Container */}
